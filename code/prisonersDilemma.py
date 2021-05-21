@@ -93,7 +93,7 @@ def runFullPairingTournament(inFolder, outFile):
         scoreKeeper[strategy] = 0
         
     f = open(outFile,"w+")
-    for pair in itertools.combinations(STRATEGY_LIST, r=2):
+    for pair in itertools.combinations_with_replacement(STRATEGY_LIST, r=2):
         roundHistory = runRound(pair)
         scoresA, scoresB = tallyRoundScores(roundHistory)
         outputRoundResults(f, pair, roundHistory, scoresA, scoresB)
